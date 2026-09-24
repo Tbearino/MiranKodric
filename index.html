@@ -53,8 +53,9 @@
 .karta li.zori h3{color:var(--crnilo-2);font-style:italic}
 
 /* ---------- O AVTORJU ---------- */
-.avtor{border:1px solid var(--crnilo);outline:1px solid var(--crnilo);outline-offset:-7px;padding:2.4rem;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:3rem}
-@media (max-width:860px){.avtor{grid-template-columns:1fr;padding:1.6rem;gap:1.5rem}}
+.avtor{position:relative;border:1px solid var(--crnilo);padding:2.4rem;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:3rem}
+.avtor::before{content:"";position:absolute;inset:6px;border:1px solid var(--crnilo);pointer-events:none}
+.avtor h2{position:relative;z-index:1}@media (max-width:860px){.avtor{grid-template-columns:1fr;padding:1.6rem;gap:1.5rem}}
 .avtor h2{font-size:clamp(1.8rem,3.4vw,2.5rem);text-align:center;margin:-3.6rem auto 1.8rem;background:var(--papir);padding:0 1.2rem;width:max-content;max-width:100%;grid-column:1/-1}
 .avtor .besedilo p{max-width:62ch}
 .casovnica{margin:1.6rem 0 0;padding:0;list-style:none;border-top:1px solid var(--crnilo);font-size:.98rem}
@@ -132,6 +133,9 @@
     </div>
     <div class="wrap letniki-mreza">
       <ol class="karta" reversed>
+         <li class="zori">
+          <div class="vrsta"><span class="leto">2026</span><h3>Naslednji letnik še zori</h3><span class="pike"></span><span class="vrsta-dela">v pripravi</span></div>
+        </li>
         <li>
           <div class="vrsta"><span class="leto">2025</span><h3><a href="knjiga.html">Janez Nemec, prvi državni prvak v namiznem tenisu</a></h3><span class="pike"></span><span class="vrsta-dela">monografija</span></div>
           <p class="opis">Z Jožetom Nemcem. Na voljo za branje na spletu.</p>
@@ -144,9 +148,6 @@
           <div class="vrsta"><span class="leto">2002</span><h3>Telesna priprava namiznoteniškega igralca</h3><span class="pike"></span><span class="vrsta-dela">priročnik</span></div>
           <p class="opis">Z Gordano Furjan-Mandić. Fakulteta za šport, 118 strani.</p>
         </li>
-        <li class="zori">
-          <div class="vrsta"><span class="leto">2026</span><h3>Naslednji letnik še zori</h3><span class="pike"></span><span class="vrsta-dela">v pripravi</span></div>
-        </li>
       </ol>
       <figure class="ilustracija">
         <img src="slike/lopar.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('brez')">
@@ -155,7 +156,9 @@
   </section>
 
   <!-- ============ O AVTORJU ============ -->
-  <section id="o-avtorju" class="wrap" style="padding-top:6rem" aria-labelledby="avtor-naslov">
+  <section id="o-avtorju" class="wrap z-risbo" style="padding-top:6rem" aria-labelledby="avtor-naslov">
+  <img class="risba" src="slike/gorice.png" alt="" onerror="this.remove()"
+       style="width:min(1200px,120%);left:50%;bottom:-5rem;transform:translateX(-50%)">
     <div class="avtor">
       <h2 id="avtor-naslov">O avtorju</h2>
       <figure class="ilustracija">

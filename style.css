@@ -95,3 +95,14 @@ p{margin:0 0 1em}
 .noga p{color:#DCD2BF;font-size:1rem}
 .noga .email{font-family:var(--display);font-size:clamp(1.15rem,2.4vw,1.5rem);word-break:break-word}
 .noga .spodaj{border-top:1px solid #4A4036;padding:1.3rem 0 2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:#B9AC96}
+/* ---------- RISBE V OZADJU ---------- */
+body{overflow-x:clip}
+.z-risbo{position:relative}
+.z-risbo > *:not(.risba){position:relative;z-index:1}
+.risba{
+  position:absolute;z-index:0;pointer-events:none;height:auto;
+  opacity:.13;mix-blend-mode:multiply;filter:grayscale(1) sepia(.4);
+  -webkit-mask-image:radial-gradient(closest-side,#000 45%,transparent 100%);
+  mask-image:radial-gradient(closest-side,#000 45%,transparent 100%);
+}
+@media (max-width:720px){.risba{opacity:.08}}
