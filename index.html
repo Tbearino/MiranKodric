@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Miran Kondrič — zapisi o športu in zgodovini</title>
+<meta name="description" content="prof. dr. Miran Kondrič: knjige in projekti o namiznem tenisu, zgodovini športa in Prekmurju.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ---------- VODILNI ČLANEK ---------- */
+.vodilni{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:3.5rem;padding:3.5rem 0 1rem;align-items:start}
+@media (max-width:860px){.vodilni{grid-template-columns:1fr;gap:2rem}}
+.vodilni .oznaka{font-style:italic;color:var(--vino);margin-bottom:.6rem}
+.vodilni h1{font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.05;margin-bottom:1rem}
+.podpis{font-size:.85rem;color:var(--crnilo-2);padding:.6rem 0;border-block:1px solid var(--crnilo);margin-bottom:1.4rem;display:flex;flex-wrap:wrap;gap:.2rem 1.4rem}
+.stolpca{columns:2 16rem;column-gap:2.2rem;text-align:justify;hyphens:auto;font-size:1.02rem}
+.stolpca p:first-child::first-letter{
+  font-family:var(--display);font-weight:700;float:left;font-size:4.2em;line-height:.8;
+  padding:.06em .08em 0 0;color:var(--crnilo);
+}
+
+/* ---------- IZ ARHIVA (izrezki) ---------- */
+.arhiv{border-block:1px solid var(--crnilo);margin-top:3.5rem;padding:1.6rem 0 2rem}
+.arhiv h2{text-align:center;font-weight:400;font-size:.9rem;font-family:var(--body);color:var(--crnilo-2);margin-bottom:1.4rem}
+.izrezki{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;align-items:center}
+@media (max-width:720px){.izrezki{grid-template-columns:1fr 1fr}.izrezki figure:last-child{display:none}}
+.izrezki figure{margin:0}
+.izrezki img{width:100%;height:auto;mix-blend-mode:multiply;transform:rotate(-1deg)}
+.izrezki figure:nth-child(2) img{transform:rotate(1.2deg)}
+.izrezki figcaption{font-size:.8rem;font-style:italic;color:var(--crnilo-2);text-align:center;margin-top:.5rem}
+
+/* ---------- POKRAJINA ---------- */
+.pokrajina{margin-top:4rem}
+
+/* ---------- LETNIKI (vinska karta) ---------- */
+.letniki-mreza{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:3.5rem;align-items:center}
+@media (max-width:860px){.letniki-mreza{grid-template-columns:1fr}}
+.karta{list-style:none;margin:0;padding:0}
+.karta li{padding:1.2rem 0;border-bottom:1px solid var(--crta)}
+.karta li:first-child{border-top:1px solid var(--crnilo)}
+.karta .vrsta{display:flex;align-items:baseline;gap:.8rem}
+.karta .leto{font-family:var(--display);font-size:1.05rem;min-width:3.4rem;color:var(--vino)}
+.karta h3{font-size:1.3rem;font-weight:400}
+.karta h3 a{text-decoration:none}
+.karta h3 a:hover{text-decoration:underline}
+.karta .pike{flex:1;border-bottom:1px dotted var(--crnilo-2);transform:translateY(-.3em);min-width:1.5rem}
+.karta .vrsta-dela{font-size:.9rem;color:var(--crnilo-2);white-space:nowrap}
+.karta .opis{margin:.3rem 0 0 4.2rem;font-style:italic;color:var(--crnilo-2);font-size:.98rem}
+@media (max-width:560px){.karta .opis{margin-left:0}.karta .vrsta{flex-wrap:wrap}.karta .pike{display:none}}
+.karta li.zori h3{color:var(--crnilo-2);font-style:italic}
+
+/* ---------- O AVTORJU ---------- */
+.avtor{border:1px solid var(--crnilo);outline:1px solid var(--crnilo);outline-offset:-7px;padding:2.4rem;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:3rem}
+@media (max-width:860px){.avtor{grid-template-columns:1fr;padding:1.6rem;gap:1.5rem}}
+.avtor h2{font-size:clamp(1.8rem,3.4vw,2.5rem);text-align:center;margin:-3.6rem auto 1.8rem;background:var(--papir);padding:0 1.2rem;width:max-content;max-width:100%;grid-column:1/-1}
+.avtor .besedilo p{max-width:62ch}
+.casovnica{margin:1.6rem 0 0;padding:0;list-style:none;border-top:1px solid var(--crnilo);font-size:.98rem}
+.casovnica li{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--crta)}
+.casovnica .l{font-family:var(--display);color:var(--vino)}
+/* dokler ilustracij ni, vsebina zasede ves prostor */
+.letniki-mreza:has(.ilustracija.brez){grid-template-columns:1fr}
+.avtor:has(.ilustracija.brez) .besedilo{grid-column:1/-1;columns:2 20rem;column-gap:3rem}
+.avtor:has(.ilustracija.brez) .casovnica{break-inside:avoid}
+</style>
+</head>
+<body>
+
+<header class="masthead wrap">
+  <div class="vrstica"><span>Št. 1</span><span>Zapisi o športu in zgodovini</span><span>Radenci, Ljubljana</span></div>
+  <hr class="enojna">
+  <a class="ime" href="index.html">Miran Kondrič</a>
+  <hr class="dvojna">
+  <nav aria-label="Glavna navigacija">
+    <ul>
+      <li><a href="index.html" aria-current="page">Domov</a></li>
+      <li><a href="knjiga.html">Knjiga</a></li>
+      <li><a href="#letniki">Projekti</a></li>
+      <li><a href="#o-avtorju">O avtorju</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+  <hr class="enojna">
+</header>
+
+<main>
+  <!-- ============ VODILNI ČLANEK: KNJIGA ============ -->
+  <article class="wrap vodilni">
+    <figure class="okvir">
+      <img src="slike/naslovna.jpg" alt="Dva mlada moška z loparjema za namizni tenis, stara fotografija iz tridesetih let" width="898" height="1360">
+      <figcaption>Fotografija z naslovnice knjige. Iz zasebnega arhiva Jožeta Nemca.</figcaption>
+    </figure>
+    <div>
+      <p class="oznaka">Nova knjiga</p>
+      <h1>Janez Nemec, prvi državni prvak v namiznem tenisu</h1>
+      <div class="podpis"><span>Miran Kondrič in Jože Nemec</span><span>Radenci, 2025</span><span>308 strani</span></div>
+      <div class="stolpca">
+        <p>Maja 1930 je Murska Sobota gostila prvo državno prvenstvo v namiznem tenisu. Zmagal je domačin Janez Nemec iz športnega kluba Mura, takrat star komaj osemnajst let.</p>
+        <p>Monografija sledi njegovi poti od prvih žogic na soboških mizah do doktorata iz prava in dela na mariborski visoki šoli. Ob tem odstre tudi Prekmurje dvajsetih in tridesetih let: klube, kavarne, časopise in ljudi, ki so šport prinesli čez Muro.</p>
+        <p>V knjigi so zbrane izvirne fotografije, pisma in več kot dvesto strani časopisnih objav, ohranjenih v izvirnem jeziku in pravopisu tistega časa.</p>
+      </div>
+      <div class="gumbi">
+        <a class="gumb polno" href="knjiga.html">Preberi knjigo</a>
+        <a class="gumb" href="knjiga/janez-nemec.pdf" download>Prenesi PDF</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- ============ IZ ARHIVA ============ -->
+  <section class="wrap" aria-labelledby="arhiv-naslov">
+    <div class="arhiv">
+      <h2 id="arhiv-naslov">Iz časopisov, ki jih hrani knjiga</h2>
+      <div class="izrezki">
+        <figure><img src="slike/izrezek-1.jpg" alt="Časopisni izrezek: vabilo na ustanovni občni zbor kluba Mura, 1924" loading="lazy"><figcaption>Vabilo na ustanovni zbor, 1924</figcaption></figure>
+        <figure><img src="slike/izrezek-2.jpg" alt="Časopisni izrezek o tekmi Š. K. Mura proti Š. K. Maribor" loading="lazy"><figcaption>Otvoritev igrišča, 1924</figcaption></figure>
+        <figure><img src="slike/izrezek-3.jpg" alt="Časopisni izrezek o športnem klubu Mura" loading="lazy"><figcaption>Š. K. Mura v tisku</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ POKRAJINA (Canva / tvoja risba) ============ -->
+  <figure class="ilustracija pokrajina wrap">
+    <img src="slike/gorice.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('brez')">
+  </figure>
+
+  <!-- ============ LETNIKI / PROJEKTI ============ -->
+  <section id="letniki" aria-labelledby="letniki-naslov">
+    <div class="rubrika wrap">
+      <h2 id="letniki-naslov">Letniki</h2>
+      <p>Knjige in projekti, zbrani kot vina v kleti. Vsak letnik je svoje delo.</p>
+    </div>
+    <div class="wrap letniki-mreza">
+      <ol class="karta" reversed>
+        <li>
+          <div class="vrsta"><span class="leto">2025</span><h3><a href="knjiga.html">Janez Nemec, prvi državni prvak v namiznem tenisu</a></h3><span class="pike"></span><span class="vrsta-dela">monografija</span></div>
+          <p class="opis">Z Jožetom Nemcem. Na voljo za branje na spletu.</p>
+        </li>
+        <li>
+          <div class="vrsta"><span class="leto">2005</span><h3>Namizni tenis: vadba z več žogicami</h3><span class="pike"></span><span class="vrsta-dela">DVD</span></div>
+          <p class="opis">Z Radivojem Hudetzem in Nevenom Karkovićem.</p>
+        </li>
+        <li>
+          <div class="vrsta"><span class="leto">2002</span><h3>Telesna priprava namiznoteniškega igralca</h3><span class="pike"></span><span class="vrsta-dela">priročnik</span></div>
+          <p class="opis">Z Gordano Furjan-Mandić. Fakulteta za šport, 118 strani.</p>
+        </li>
+        <li class="zori">
+          <div class="vrsta"><span class="leto">2026</span><h3>Naslednji letnik še zori</h3><span class="pike"></span><span class="vrsta-dela">v pripravi</span></div>
+        </li>
+      </ol>
+      <figure class="ilustracija">
+        <img src="slike/lopar.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('brez')">
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ O AVTORJU ============ -->
+  <section id="o-avtorju" class="wrap" style="padding-top:6rem" aria-labelledby="avtor-naslov">
+    <div class="avtor">
+      <h2 id="avtor-naslov">O avtorju</h2>
+      <figure class="ilustracija">
+        <img src="slike/igralec.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('brez')">
+      </figure>
+      <div class="besedilo">
+        <p>Rodil sem se leta 1960 v Murski Soboti. Sem redni profesor na Fakulteti za šport Univerze v Ljubljani, kjer vodim predmete Igre z loparji, Namizni tenis in Badminton.</p>
+        <p>Od leta 1997 sem član znanstvene komisije Mednarodne namiznoteniške zveze. Predaval sem v Kölnu, Bochumu, Splitu in Celovcu, dolga leta pa sem skrbel za kondicijsko pripravo Bojana Tokiča.</p>
+        <p>Poleg športa me vleče zgodovina Prekmurja: kraji, ljudje in zgodbe, ki bi se brez zapisa izgubile.</p>
+        <ol class="casovnica">
+          <li><span class="l">1960</span><span>Rojen v Murski Soboti</span></li>
+          <li><span class="l">1995–1999</span><span>Direktor Zavoda za šport Slovenije</span></li>
+          <li><span class="l">1997</span><span>Član znanstvene komisije ITTF</span></li>
+          <li><span class="l">2000</span><span>Doktorat iz kinezioloških znanosti, Zagreb</span></li>
+          <li><span class="l">2014</span><span>Redni profesor, Fakulteta za šport UL</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="noga" id="kontakt">
+  <div class="wrap">
+    <div class="noga-mreza">
+      <div>
+        <h2>Pišite mi</h2>
+        <p>Za vprašanja o knjigi, projektih ali zgodovini namiznega tenisa.</p>
+        <a class="email" href="mailto:miran.kondric@fsp.uni-lj.si">miran.kondric@fsp.uni-lj.si</a>
+      </div>
+      <div>
+        <h3>Naslov</h3>
+        <p>Fakulteta za šport<br>Gortanova 22<br>1000 Ljubljana</p>
+      </div>
+      <div>
+        <h3>Strani</h3>
+        <p><a href="knjiga.html">Knjiga</a><br><a href="#letniki">Letniki</a><br><a href="#o-avtorju">O avtorju</a></p>
+      </div>
+    </div>
+    <div class="spodaj"><span>© <span class="leto-zdaj">2026</span> Miran Kondrič</span><a href="#">Na vrh</a></div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.leto-zdaj').forEach(e=>e.textContent=new Date().getFullYear())</script>
+</body>
+</html>
