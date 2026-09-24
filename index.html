@@ -36,9 +36,7 @@
 .pokrajina{margin-top:4rem}
 
 /* ---------- LETNIKI (vinska karta) ---------- */
-.letniki-mreza{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:3.5rem;align-items:center}
-
-@media (max-width:860px){.letniki-mreza{grid-template-columns:1fr}}
+.letniki-mreza{display:block}
 .karta{list-style:none;margin:0;padding:0}
 .karta li{padding:1.2rem 0;border-bottom:1px solid var(--crta)}
 .karta li:first-child{border-top:1px solid var(--crnilo)}
@@ -65,7 +63,6 @@
 .casovnica li{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--crta)}
 .casovnica .l{font-family:var(--display);color:var(--vino)}
 /* dokler ilustracij ni, vsebina zasede ves prostor */
-.letniki-mreza:has(.ilustracija.brez){grid-template-columns:1fr}
 .avtor:has(.ilustracija.brez) .besedilo{grid-column:1/-1;columns:2 20rem;column-gap:3rem}
 .avtor:has(.ilustracija.brez) .casovnica{break-inside:avoid}
 </style>
