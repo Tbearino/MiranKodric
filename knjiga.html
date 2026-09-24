@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
 <style>
 /* ---------- GLAVA KNJIGE ---------- */
 .knjiga-glava{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:3.5rem;padding:3.5rem 0 2rem;align-items:start}
@@ -50,6 +51,11 @@
 /*Otezevanje shranjevanja*/
 .stran img{pointer-events:none;-webkit-user-drag:none;user-select:none}
 .podatki div:not([hidden]){display:contents}
+.bralnik:fullscreen{padding:1.2rem 0}
+.bralnik:fullscreen .wrap{max-width:none}
+.bralnik:fullscreen .bralnik-glava{display:none}
+.bralnik:fullscreen #knjiga-oder{max-width:calc((100vh - 6rem) * 1.414)}
+.bralnik:fullscreen .kontrole{margin-top:.8rem}
 </style>
 </head>
 <body>
@@ -97,7 +103,7 @@
   <!-- ============ VSEBINA ============ -->
   <section class="wrap z-risbo" aria-labelledby="vsebina-naslov">
   <img class="risba" src="slike/igralec.png" alt="" onerror="this.remove()"
-    style="width:min(420px,42vw);aspect-ratio:5/8;object-fit:cover;object-position:left center;left:10%;top:65%;transform:translateY(-50%);opacity:.18;-webkit-mask-image:radial-gradient(closest-side,#000 80%,transparent 100%);mask-image:radial-gradient(closest-side,#000 80%,transparent 100%)">
+    style="width:min(420px,42vw);aspect-ratio:5/8;object-fit:cover;object-position:left center;left:8%;top:63%;transform:translateY(-50%);opacity:.18;-webkit-mask-image:radial-gradient(closest-side,#000 80%,transparent 100%);mask-image:radial-gradient(closest-side,#000 80%,transparent 100%)">
   <img class="risba" src="slike/igralec.png" alt="" onerror="this.remove()"
     style="width:min(1000px,95vw);right:-15%;top:35%;opacity:.2;-webkit-mask-image:radial-gradient(ellipse 75% 60% at -15% -50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 28% 75% at 68% 32%,#000 55%,transparent 100%)">
   <div class="rubrika" style="padding-top:3rem">
@@ -275,6 +281,7 @@ oder.addEventListener('contextmenu', e => e.preventDefault());
     if (stej) localStorage.setItem('videl-knjigo', '1');
   } catch(e){}
 })();
+document.addEventListener('fullscreenchange', () => setTimeout(() => flip && flip.update(), 60));
 </script>
 </body>
 </html>
