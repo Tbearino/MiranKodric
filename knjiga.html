@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Janez Nemec, prvi državni prvak v namiznem tenisu — Miran Kondrič</title>
+<meta name="description" content="Monografija Mirana Kondriča in Jožeta Nemca o Janezu Nemcu, prvem državnem prvaku v namiznem tenisu. Preberite jo na spletu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<style>
+/* ---------- GLAVA KNJIGE ---------- */
+.knjiga-glava{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:3.5rem;padding:3.5rem 0 2rem;align-items:start}
+@media (max-width:860px){.knjiga-glava{grid-template-columns:1fr;gap:2rem}}
+.knjiga-glava .okvir{max-width:420px}
+.knjiga-glava h1{font-size:clamp(2.2rem,4.8vw,3.8rem);line-height:1.04;margin:.4rem 0 1.4rem}
+.oznaka{font-style:italic;color:var(--vino);margin:0}
+.podatki{display:grid;grid-template-columns:max-content 1fr;gap:0 1.6rem;margin:0 0 1.6rem;border-top:1px solid var(--crnilo)}
+.podatki dt,.podatki dd{padding:.5rem 0;border-bottom:1px solid var(--crta);margin:0}
+.podatki dt{color:var(--crnilo-2);font-size:.95rem}
+.uvod p{max-width:62ch}
+
+/* ---------- VSEBINA (kazalo) ---------- */
+.kazalo{columns:2 20rem;column-gap:3rem;list-style:none;margin:0;padding:0;border-top:1px solid var(--crnilo)}
+.kazalo li{break-inside:avoid;border-bottom:1px solid var(--crta)}
+.kazalo button{
+  all:unset;box-sizing:border-box;display:flex;align-items:baseline;gap:.6rem;width:100%;padding:.5rem 0;cursor:pointer;font-size:1rem;
+}
+.kazalo button:hover .n{color:var(--vino);text-decoration:underline}
+.kazalo button:focus-visible{outline:2px solid var(--vino);outline-offset:2px}
+.kazalo .pike{flex:1;border-bottom:1px dotted var(--crnilo-2);transform:translateY(-.3em);min-width:1rem}
+.kazalo .s{font-family:var(--display);color:var(--crnilo-2);font-variant-numeric:tabular-nums}
+
+/* ---------- BRALNIK ---------- */
+.bralnik{background:var(--papir-2);border-block:3px double var(--crnilo);margin-top:5rem;padding:3rem 0 3.5rem}
+.bralnik:fullscreen{overflow:auto;display:flex;flex-direction:column;justify-content:center;border:0}
+.bralnik-glava{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:1rem;margin-bottom:1.8rem}
+.bralnik-glava h2{font-weight:400;font-style:italic;font-size:clamp(1.6rem,3vw,2.2rem)}
+.bralnik-glava p{margin:0;color:var(--crnilo-2);font-size:.95rem}
+#knjiga-oder{max-width:1060px;margin:0 auto;min-height:300px}
+.stf__parent{margin:0 auto}
+.stran{background:#fff;overflow:hidden}
+.stran img{width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .25s}
+.stran img.nalozena{opacity:1}
+.kontrole{display:flex;justify-content:center;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
+.stevec{display:flex;align-items:center;gap:.4rem;color:var(--crnilo-2);font-variant-numeric:tabular-nums}
+.stevec input{width:4.2rem;font:inherit;text-align:center;padding:.4rem;border:1px solid var(--crnilo-2);background:var(--papir);color:var(--crnilo)}
+</style>
+</head>
+<body>
+
+<header class="masthead mala wrap">
+  <div class="vrstica"><span>Knjiga</span><span>Zapisi o športu in zgodovini</span><span>Radenci, 2025</span></div>
+  <hr class="enojna">
+  <a class="ime" href="index.html">Miran Kondrič</a>
+  <hr class="dvojna">
+  <nav aria-label="Glavna navigacija">
+    <ul>
+      <li><a href="index.html">Domov</a></li>
+      <li><a href="knjiga.html" aria-current="page">Knjiga</a></li>
+      <li><a href="index.html#letniki">Projekti</a></li>
+      <li><a href="index.html#o-avtorju">O avtorju</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+  <hr class="enojna">
+</header>
+
+<main>
+  <!-- ============ O KNJIGI ============ -->
+  <div class="wrap knjiga-glava">
+    <figure class="okvir">
+      <img src="slike/naslovna.jpg" alt="Naslovnica: dva mlada moška z loparjema za namizni tenis" width="898" height="1360">
+    </figure>
+    <div class="uvod">
+      <p class="oznaka">Monografija</p>
+      <h1>Janez Nemec, prvi državni prvak v namiznem tenisu</h1>
+      <dl class="podatki">
+        <dt>Avtorja</dt><dd>Miran Kondrič in Jože Nemec</dd>
+        <dt>Izid</dt><dd>Radenci, 2025</dd>
+        <dt>Obseg</dt><dd>308 strani, s fotografijami in časopisnimi viri</dd>
+      </dl>
+      <p>Maja 1930 je v Murski Soboti potekalo prvo državno prvenstvo v namiznem tenisu. Posamično ga je dobil Janez Nemec (1912–2001), igralec domačega Športnega kluba Mura.</p>
+      <p>Knjiga je prvo delo, ki v celoti predstavi njegovo življenje in z njim razvoj namiznega tenisa v Prekmurju, sto let po prvi omembi te igre ob Muri. Časopisni zapisi so namenoma ohranjeni v izvirnem jeziku in pravopisu.</p>
+      <div class="gumbi">
+        <a class="gumb polno" href="#beri">Začni brati</a>
+        <a class="gumb" href="knjiga/janez-nemec.pdf" download>Prenesi PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ VSEBINA ============ -->
+  <section class="wrap" aria-labelledby="vsebina-naslov">
+    <div class="rubrika" style="padding-top:3rem">
+      <h2 id="vsebina-naslov">Vsebina</h2>
+      <p>Kliknite poglavje in knjiga se odpre na pravi strani.</p>
+    </div>
+    <ol class="kazalo" id="kazalo"></ol>
+  </section>
+
+  <!-- ============ BRALNIK ============ -->
+  <section class="bralnik" id="beri" aria-labelledby="beri-naslov">
+    <div class="wrap">
+      <div class="bralnik-glava">
+        <h2 id="beri-naslov">Preberite knjigo</h2>
+        <p>Obračajte s klikom na rob strani, s puščicami ali z vlečenjem vogala.</p>
+      </div>
+      <div id="knjiga-oder"></div>
+      <div class="kontrole">
+        <button class="gumb" id="nazaj" type="button">Nazaj</button>
+        <label class="stevec">Stran <input id="st-strani" type="number" min="1" value="1" inputmode="numeric"> od <span id="skupaj"></span></label>
+        <button class="gumb" id="naprej" type="button">Naprej</button>
+        <button class="gumb" id="celo" type="button">Čez cel zaslon</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="noga" id="kontakt">
+  <div class="wrap">
+    <div class="noga-mreza">
+      <div>
+        <h2>Pišite mi</h2>
+        <p>Za vprašanja o knjigi, projektih ali zgodovini namiznega tenisa.</p>
+        <a class="email" href="mailto:miran.kondric@fsp.uni-lj.si">miran.kondric@fsp.uni-lj.si</a>
+      </div>
+      <div>
+        <h3>Naslov</h3>
+        <p>Fakulteta za šport<br>Gortanova 22<br>1000 Ljubljana</p>
+      </div>
+      <div>
+        <h3>Strani</h3>
+        <p><a href="index.html">Domov</a><br><a href="index.html#letniki">Letniki</a><br><a href="index.html#o-avtorju">O avtorju</a></p>
+      </div>
+    </div>
+    <div class="spodaj"><span>© <span class="leto-zdaj">2026</span> Miran Kondrič</span><a href="#">Na vrh</a></div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   NASTAVITVE KNJIGE
+   Strani so slike v mapi knjiga/strani/ (001.webp, 002.webp …).
+   ========================================================= */
+const KNJIGA = {
+  strani: 308,
+  pot: 'knjiga/strani/',
+  koncnica: '.webp',
+  sirina: 869, visina: 1228,   // velikost ene strani (za razmerje)
+  slike: null                   // samo za predogled; pusti null
+};
+
+/* Poglavja: [naslov, stran] */
+const POGLAVJA = [
+  ['Predgovor',8],['Športna dejavnost ob Muri',9],['Športni klub Mura',10],['Prvi zapisi o namiznem tenisu',13],
+  ['Koloman Györy',15],['Marica Cimperman',15],['Erži Jonaš',16],['Gabi Kardoš',16],['Ludvik Nemec',17],
+  ['Janez Nemec o začetkih namiznega tenisa',18],['Janez Nemec in časopis Düplin',20],['Janez Nemec, sourednik časopisa Düplin',21],
+  ['Janez Nemec o sebi',24],['Namizni tenis v Murski Soboti med obema vojnama',44],['Prekmurci in razvoj namiznega tenisa',46],
+  ['Pismo Janeza Nemca Dragu Stepišniku',51],['Janez Nemec o Maksu Marinku',54],['Športni uspehi Janeza Nemca',57],
+  ['Galerija namiznoteniških uspehov',60],['Foto utrinki iz življenja',66],['Janez Nemec in družbena dejavnost',71],
+  ['Delovanje na VEKŠ-u',72],['Razne anekdote',73],['Janez Nemec v časopisih',75],['Bibliografija v COBISS-u',293],
+  ['Stvarno kazalo',299],['Viri',300],['Seznam fotografij',301],['Recenziji',304]
+];
+
+document.querySelectorAll('.leto-zdaj').forEach(e=>e.textContent=new Date().getFullYear());
+
+const N = KNJIGA.slike ? KNJIGA.slike.length : KNJIGA.strani;
+const oder = document.getElementById('knjiga-oder');
+const vnos = document.getElementById('st-strani');
+document.getElementById('skupaj').textContent = N;
+vnos.max = N;
+
+const pot = i => KNJIGA.slike ? KNJIGA.slike[i] : KNJIGA.pot + String(i+1).padStart(3,'0') + KNJIGA.koncnica;
+
+/* Pripravi prazne strani; slike se naložijo šele, ko so blizu */
+const el = document.createElement('div');
+for (let i=0;i<N;i++){
+  const s = document.createElement('div');
+  s.className = 'stran';
+  if (i===0 || i===N-1) s.dataset.density = 'hard';
+  const img = document.createElement('img');
+  img.alt = 'Stran ' + (i+1);
+  img.decoding = 'async';
+  img.onload = () => img.classList.add('nalozena');
+  s.appendChild(img);
+  el.appendChild(s);
+}
+oder.appendChild(el);
+const slike = [...el.querySelectorAll('img')];
+
+function naloziOkoli(idx){
+  for (let i=idx-2; i<=idx+6; i++){
+    if (i<0 || i>=N) continue;
+    const img = slike[i];
+    if (!img.getAttribute('src')) img.src = pot(i);
+  }
+}
+
+let flip = null;
+if (window.St){
+  flip = new St.PageFlip(el, {
+    width: 500, height: Math.round(500*KNJIGA.visina/KNJIGA.sirina),
+    size:'stretch', minWidth:240, maxWidth:1000, minHeight:340, maxHeight:1450,
+    showCover:true, maxShadowOpacity:.35, mobileScrollSupport:false, flippingTime:700
+  });
+  flip.loadFromHTML(el.querySelectorAll('.stran'));
+  const osvezi = () => { const i = flip.getCurrentPageIndex(); vnos.value = i+1; naloziOkoli(i); };
+  flip.on('flip', osvezi);
+  flip.on('changeOrientation', osvezi);
+  osvezi();
+} else {
+  oder.textContent = 'Bralnika ni bilo mogoče naložiti. Knjigo lahko prenesete kot PDF.';
+}
+
+function pojdiNa(stran){
+  if (!flip) return;
+  const i = Math.min(Math.max(stran,1),N) - 1;
+  naloziOkoli(i);
+  flip.turnToPage(i);
+  vnos.value = i+1;
+}
+
+document.getElementById('nazaj').onclick = () => flip && flip.flipPrev();
+document.getElementById('naprej').onclick = () => flip && flip.flipNext();
+vnos.addEventListener('change', () => pojdiNa(parseInt(vnos.value,10)||1));
+document.getElementById('celo').onclick = () => {
+  const b = document.getElementById('beri');
+  if (document.fullscreenElement) document.exitFullscreen();
+  else if (b.requestFullscreen) b.requestFullscreen();
+};
+document.addEventListener('keydown', e => {
+  if (!flip || e.target === vnos) return;
+  const r = document.getElementById('beri').getBoundingClientRect();
+  if (r.top > innerHeight || r.bottom < 0) return;
+  if (e.key==='ArrowLeft') flip.flipPrev();
+  if (e.key==='ArrowRight') flip.flipNext();
+});
+
+/* Kazalo */
+const kazalo = document.getElementById('kazalo');
+POGLAVJA.forEach(([naslov, stran]) => {
+  const li = document.createElement('li');
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.innerHTML = `<span class="n"></span><span class="pike"></span><span class="s">${stran}</span>`;
+  b.querySelector('.n').textContent = naslov;
+  b.onclick = () => {
+    if (stran > N){ document.getElementById('beri').scrollIntoView(); return; }
+    document.getElementById('beri').scrollIntoView();
+    pojdiNa(stran);
+  };
+  li.appendChild(b); kazalo.appendChild(li);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+/* =========================================================
+   MIRAN KONDRIČ — skupni slog za vse strani
+   Barve in pisave spreminjaš samo tukaj zgoraj.
+   ========================================================= */
+:root{
+  color-scheme: light;
+  --papir:#F2ECDF;        /* svetla krem podlaga */
+  --papir-2:#E8DFCC;      /* temnejši pas */
+  --crnilo:#2A231C;       /* glavno besedilo, črte */
+  --crnilo-2:#6A5E4F;     /* sekundarno besedilo */
+  --crta:#C9BBA0;         /* tanke črte */
+  --vino:#6B2A2A;         /* poudarek, zelo redko */
+  --display:"Old Standard TT", "Times New Roman", Georgia, serif;
+  --body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--papir);color:var(--crnilo);
+  font-family:var(--body);font-size:1.1rem;line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--crnilo);text-underline-offset:.22em;text-decoration-thickness:1px}
+a:hover{color:var(--vino)}
+:focus-visible{outline:2px solid var(--vino);outline-offset:3px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.1;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+.skrito{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ---------- Črte kot v časopisu ---------- */
+.dvojna{border:0;border-top:3px double var(--crnilo);margin:0}
+.enojna{border:0;border-top:1px solid var(--crnilo);margin:0}
+
+/* ---------- GLAVA / MASTHEAD ---------- */
+.masthead{padding-top:1.2rem}
+.masthead .vrstica{display:flex;justify-content:space-between;gap:1rem;font-size:.8rem;color:var(--crnilo-2);padding-bottom:.6rem}
+.masthead .ime{
+  display:block;text-align:center;text-decoration:none;color:var(--crnilo);
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(2.6rem,9vw,6.6rem);line-height:.95;letter-spacing:-.01em;
+  padding:.6rem 0 .9rem;text-transform:uppercase;
+}
+.masthead.mala .ime{font-size:clamp(2rem,5vw,3.4rem);padding:.4rem 0 .6rem}
+.masthead nav ul{
+  list-style:none;margin:0;padding:.55rem 0;display:flex;justify-content:center;flex-wrap:wrap;
+  gap:.3rem 0;font-size:.95rem;
+}
+.masthead nav li+li::before{content:"";display:inline-block;width:1px;height:.9em;background:var(--crta);margin:0 1.2rem;vertical-align:-.1em}
+.masthead nav a{text-decoration:none;color:var(--crnilo)}
+.masthead nav a:hover,.masthead nav a[aria-current]{color:var(--vino);text-decoration:underline}
+@media (max-width:560px){.masthead .vrstica span:nth-child(2){display:none}.masthead nav li+li::before{margin:0 .7rem}}
+
+/* ---------- OKVIR za fotografije (kot stara razglednica) ---------- */
+.okvir{
+  margin:0;padding:10px;border:1px solid var(--crnilo);
+  outline:1px solid var(--crnilo);outline-offset:-6px;background:var(--papir);
+}
+.okvir img{width:100%;height:auto;filter:contrast(1.02)}
+.okvir figcaption{font-size:.85rem;font-style:italic;color:var(--crnilo-2);text-align:center;padding:.7rem .4rem .1rem;line-height:1.45}
+
+/* ---------- GUMBI ---------- */
+.gumbi{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.gumb{
+  display:inline-block;font-family:var(--body);font-size:.95rem;cursor:pointer;text-decoration:none;
+  padding:.65rem 1.3rem;border:1px solid var(--crnilo);background:transparent;color:var(--crnilo);
+  outline:1px solid var(--crnilo);outline-offset:-5px;
+}
+.gumb:hover{background:var(--crnilo);color:var(--papir)}
+.gumb.polno{background:var(--crnilo);color:var(--papir);outline-color:var(--papir)}
+.gumb.polno:hover{background:var(--vino);border-color:var(--vino)}
+
+/* ---------- NASLOV SEKCIJE (ležeč, med črtama) ---------- */
+.rubrika{text-align:center;padding:4.5rem 0 2.2rem}
+.rubrika h2{font-weight:400;font-style:italic;font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.rubrika p{color:var(--crnilo-2);margin:.6rem auto 0;max-width:52ch}
+
+/* ---------- ILUSTRACIJE (tvoje risbe / Canva) ---------- */
+.ilustracija{margin:0}
+.ilustracija img{mix-blend-mode:multiply;width:100%;height:auto}
+.ilustracija.brez{display:none} /* če slike ni, se prostor skrije */
+
+/* ---------- NOGA ---------- */
+.noga{background:var(--crnilo);color:var(--papir);margin-top:6rem}
+.noga a{color:var(--papir)}
+.noga-mreza{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:3rem;padding:4rem 0 3rem}
+@media (max-width:820px){.noga-mreza{grid-template-columns:1fr;gap:2rem}}
+.noga h2{font-size:clamp(1.8rem,3.4vw,2.4rem);margin-bottom:.8rem}
+.noga h3{font-family:var(--body);font-weight:600;font-size:.85rem;color:#B9AC96;margin-bottom:.5rem}
+.noga p{color:#DCD2BF;font-size:1rem}
+.noga .email{font-family:var(--display);font-size:clamp(1.15rem,2.4vw,1.5rem);word-break:break-word}
+.noga .spodaj{border-top:1px solid #4A4036;padding:1.3rem 0 2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:#B9AC96}
