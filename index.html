@@ -36,10 +36,8 @@
 .pokrajina{margin-top:4rem}
 
 /* ---------- LETNIKI (vinska karta) ---------- */
-.letniki-mreza{display:grid;grid-template-columns:1fr;gap:3.5rem;align-items:center}
-.avtor .besedilo{columns:2 20rem;column-gap:3.5rem}
-.avtor .besedilo p{max-width:none}
-.avtor .casovnica{break-inside:avoid;margin-top:0}
+.letniki-mreza{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:3.5rem;align-items:center}
+
 @media (max-width:860px){.letniki-mreza{grid-template-columns:1fr}}
 .karta{list-style:none;margin:0;padding:0}
 .karta li{padding:1.2rem 0;border-bottom:1px solid var(--crta)}
@@ -56,7 +54,10 @@
 .karta li.zori h3{color:var(--crnilo-2);font-style:italic}
 
 /* ---------- O AVTORJU ---------- */
-.avtor{position:relative;border:1px solid var(--crnilo);padding:2.4rem;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:3rem}
+.avtor{position:relative;border:1px solid var(--crnilo);padding:2.4rem;display:grid;grid-template-columns:1fr;gap:3rem}
+.avtor .besedilo{columns:2 20rem;column-gap:3.5rem}
+.avtor .besedilo p{max-width:none}
+.avtor .casovnica{break-inside:avoid;margin-top:0}
 .avtor::before{content:"";position:absolute;inset:6px;border:1px solid var(--crnilo);pointer-events:none}
 .avtor h2{position:relative;z-index:1}@media (max-width:860px){.avtor{grid-template-columns:1fr;padding:1.6rem;gap:1.5rem}}
 .avtor h2{font-size:clamp(1.8rem,3.4vw,2.5rem);text-align:center;margin:-3.6rem auto 1.8rem;background:var(--papir);padding:0 1.2rem;width:max-content;max-width:100%;grid-column:1/-1}
