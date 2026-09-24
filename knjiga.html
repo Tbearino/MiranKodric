@@ -47,6 +47,9 @@
 .kontrole{display:flex;justify-content:center;align-items:center;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
 .stevec{display:flex;align-items:center;gap:.4rem;color:var(--crnilo-2);font-variant-numeric:tabular-nums}
 .stevec input{width:4.2rem;font:inherit;text-align:center;padding:.4rem;border:1px solid var(--crnilo-2);background:var(--papir);color:var(--crnilo)}
+/*Otezevanje shranjevanja*/
+.stran img{pointer-events:none;-webkit-user-drag:none;user-select:none}
+.podatki div:not([hidden]){display:contents}
 </style>
 </head>
 <body>
@@ -81,12 +84,12 @@
         <dt>Avtorja</dt><dd>Miran Kondrič in Jože Nemec</dd>
         <dt>Izid</dt><dd>Radenci, 2025</dd>
         <dt>Obseg</dt><dd>308 strani, s fotografijami in časopisnimi viri</dd>
+        <div class="ogledi-vrstica" hidden><dt>Ogledi</dt><dd id="ogledi"></dd></div>
       </dl>
       <p>Maja 1930 je v Murski Soboti potekalo prvo državno prvenstvo v namiznem tenisu. Posamično ga je dobil Janez Nemec (1912–2001), igralec domačega Športnega kluba Mura.</p>
       <p>Knjiga je prvo delo, ki v celoti predstavi njegovo življenje in z njim razvoj namiznega tenisa v Prekmurju, sto let po prvi omembi te igre ob Muri. Časopisni zapisi so namenoma ohranjeni v izvirnem jeziku in pravopisu.</p>
       <div class="gumbi">
         <a class="gumb polno" href="#beri">Začni brati</a>
-        <a class="gumb" href="knjiga/janez-nemec.pdf" download>Prenesi PDF</a>
       </div>
     </div>
   </div>
@@ -253,6 +256,21 @@ POGLAVJA.forEach(([naslov, stran]) => {
   };
   li.appendChild(b); kazalo.appendChild(li);
 });
+oder.addEventListener('contextmenu', e => e.preventDefault());
+(async () => {
+  const el = document.getElementById('ogledi');
+  let stej = false;
+  try { stej = !localStorage.getItem('videl-knjigo'); } catch(e){}
+  try {
+    const r = await fetch('/api/ogledi' + (stej ? '?stej=1' : ''));
+    const { ogledi } = await r.json();
+    if (ogledi) {
+      el.textContent = ogledi.toLocaleString('sl-SI');
+      el.parentElement.hidden = false;
+    }
+    if (stej) localStorage.setItem('videl-knjigo', '1');
+  } catch(e){}
+})();
 </script>
 </body>
 </html>
