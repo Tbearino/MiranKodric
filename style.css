@@ -115,3 +115,15 @@ body{overflow-x:clip}
   -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 35%);
   mask-image:linear-gradient(to bottom,transparent 0%,#000 35%);
 }
+/* ---------- PAS ZA BERLJIVOST ---------- */
+main{position:relative}
+main::before{
+  content:"";position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
+  width:min(1400px,100%);pointer-events:none;
+  background:linear-gradient(to right,
+    rgba(242,236,223,0) 0%,
+    rgba(242,236,223,.75) 12%,
+    rgba(242,236,223,.75) 88%,
+    rgba(242,236,223,0) 100%);
+}
+main > *{position:relative}
