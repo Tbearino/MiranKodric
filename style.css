@@ -128,7 +128,7 @@ main::before{
 }
 main > *{position:relative}
 /* ---------- PREHOD MED STRANMI ---------- */
-body{animation:pojavi-stran .5s ease both}
-body.odhajam{opacity:0;transition:opacity .28s ease}
+body > *:not(.ozadje-pokrajina){animation:pojavi-stran .5s ease backwards}
+body.odhajam > *:not(.ozadje-pokrajina){opacity:0;transition:opacity .25s ease}
 @keyframes pojavi-stran{from{opacity:0}}
-@media (prefers-reduced-motion:reduce){body{animation:none}body.odhajam{transition:none}}
+@media (prefers-reduced-motion:reduce){body > *{animation:none!important;transition:none!important}}
