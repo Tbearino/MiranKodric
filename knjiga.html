@@ -332,6 +332,17 @@ document.addEventListener('fullscreenchange', () => setTimeout(() => flip && fli
   oder.addEventListener('mouseleave', () => lupa.classList.remove('vidna'));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && vklop) gumb.click(); });
 })();
+document.querySelectorAll('a[href]').forEach(a => {
+  const url = new URL(a.href, location.href);
+  if (url.origin !== location.origin || url.pathname === location.pathname || a.target) return;
+  a.addEventListener('click', e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault();
+    document.body.classList.add('odhajam');
+    setTimeout(() => location.href = a.href, 280);
+  });
+});
+addEventListener('pageshow', e => { if (e.persisted) document.body.classList.remove('odhajam'); });
 </script>
 </body>
 </html>
