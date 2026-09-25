@@ -70,6 +70,16 @@
 #lupa-gumb[aria-pressed="true"]{background:var(--crnilo);color:var(--papir)}
 .z-lupo #knjiga-oder{cursor:zoom-in}
 @media (hover:none){#lupa-gumb{display:none}}
+/* ---------- PREHOD MED STRANMI ---------- */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:izgini .35s ease both}
+::view-transition-new(root){animation:pojavi .45s ease both}
+@keyframes izgini{to{opacity:0;transform:translateY(-8px)}}
+@keyframes pojavi{from{opacity:0;transform:translateY(12px)}}
+.masthead .ime{view-transition-name:ime}
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
+}
 </style>
 </head>
 <body>
