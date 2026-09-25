@@ -106,3 +106,12 @@ body{overflow-x:clip}
   mask-image:radial-gradient(closest-side,#000 45%,transparent 100%);
 }
 @media (max-width:720px){.risba{opacity:.08}}
+/* ---------- POKRAJINA V OZADJU (parallax) ---------- */
+.ozadje-pokrajina{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.ozadje-pokrajina img{
+  position:absolute;left:50%;bottom:-15vh;width:100%;min-width:1400px;height:auto;
+  opacity:.13;mix-blend-mode:multiply;filter:grayscale(1) sepia(.4);
+  transform:translate3d(-50%,0,0);will-change:transform;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 35%);
+  mask-image:linear-gradient(to bottom,transparent 0%,#000 35%);
+}

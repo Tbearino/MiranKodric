@@ -67,6 +67,9 @@
 </style>
 </head>
 <body>
+<div class="ozadje-pokrajina" aria-hidden="true">
+  <img src="slike/goricko.png" alt="" onerror="this.parentElement.remove()">
+</div>
 
 <header class="masthead wrap">
   <div class="vrstica"><span>Št. 1</span><span>Zapisi o športu in zgodovini</span><span>Radenci, Ljubljana</span></div>
@@ -87,9 +90,7 @@
 
 <main>
   <!-- ============ VODILNI ČLANEK: KNJIGA ============ -->
-  <article class="wrap vodilni z-risbo">
-  <img class="risba" src="slike/goricko.png" alt="" onerror="this.remove()"
-       style="width:min(1300px,120%);left:50%;bottom:-6rem;transform:translateX(-50%)">
+  <article class="wrap vodilni">
     <figure class="okvir">
       <img src="slike/naslovna.jpg" alt="Dva mlada moška z loparjema za namizni tenis, stara fotografija iz tridesetih let" width="898" height="1360">
       <figcaption>Fotografija z naslovnice knjige. Iz zasebnega arhiva Jožeta Nemca.</figcaption>
@@ -190,6 +191,22 @@
     <div class="spodaj"><span>© <span class="leto-zdaj">2026</span> Miran Kondrič</span><a href="#">Na vrh</a></div>
   </div>
 </footer>
-<script>document.querySelectorAll('.leto-zdaj').forEach(e=>e.textContent=new Date().getFullYear())</script>
+<script>
+document.querySelectorAll('.leto-zdaj').forEach(e=>e.textContent=new Date().getFullYear())
+(() => {
+  const img = document.querySelector('.ozadje-pokrajina img');
+  if (!img || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let caka = false;
+  addEventListener('scroll', () => {
+    if (caka) return; caka = true;
+    requestAnimationFrame(() => {
+      const y = Math.min(scrollY * 0.12, innerHeight * 0.6);
+      img.style.transform = `translate3d(-50%, ${-y}px, 0)`;
+      caka = false;
+    });
+  }, { passive: true });
+})();
+
+</script>
 </body>
 </html>
