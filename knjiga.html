@@ -56,6 +56,15 @@
 .bralnik:fullscreen .bralnik-glava{display:none}
 .bralnik:fullscreen #knjiga-oder{max-width:calc((100vh - 6rem) * 1.414)}
 .bralnik:fullscreen .kontrole{margin-top:.8rem}
+/* ---------- BRALNI NAČIN (cel zaslon) ---------- */
+.bralnik:fullscreen{
+  background:radial-gradient(ellipse at center, #3A2F25 0%, #1E1813 70%);
+}
+.bralnik:fullscreen .stf__parent{filter:drop-shadow(0 20px 40px rgba(0,0,0,.55))}
+.bralnik:fullscreen .gumb{color:#EDE4D3;border-color:#8C7B65;outline-color:#8C7B65}
+.bralnik:fullscreen .gumb:hover{background:#EDE4D3;color:#1E1813}
+.bralnik:fullscreen .stevec{color:#B9AC96}
+.bralnik:fullscreen .stevec input{background:#2A221B;color:#EDE4D3;border-color:#8C7B65}
 </style>
 </head>
 <body>
@@ -125,7 +134,7 @@
         <button class="gumb" id="nazaj" type="button">Nazaj</button>
         <label class="stevec">Stran <input id="st-strani" type="number" min="1" value="1" inputmode="numeric"> od <span id="skupaj"></span></label>
         <button class="gumb" id="naprej" type="button">Naprej</button>
-        <button class="gumb" id="celo" type="button">Čez cel zaslon</button>
+        <button class="gumb" id="celo" type="button">Bralni način</button>
       </div>
     </div>
   </section>
