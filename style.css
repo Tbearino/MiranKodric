@@ -129,10 +129,14 @@ main::before{
 }
 main > *{position:relative}
 /* ---------- PREHOD MED STRANMI ---------- */
-body > *:not(.ozadje-pokrajina){animation:pojavi-stran .5s ease backwards}
-body.odhajam > *:not(.ozadje-pokrajina){opacity:0;transition:opacity .25s ease}
-@keyframes pojavi-stran{from{opacity:0}}
-@media (prefers-reduced-motion:reduce){body > *{animation:none!important;transition:none!important}}
+/* Glava ostane pri miru, vsebina in noga se nežno prelijeta.
+   Dokler se vsebina ne naloži (body.cakam), sta skriti, da nič ne poskakuje.
+   Če se karkoli zatakne, se po 1,5 s vseeno pokažeta. */
+main,.noga{transition:opacity .35s ease}
+body.cakam main,body.cakam .noga{opacity:0;animation:pokazi-vseeno 0s 1.5s forwards}
+@keyframes pokazi-vseeno{to{opacity:1}}
+body.odhajam main,body.odhajam .noga{opacity:0;transition-duration:.18s}
+@media (prefers-reduced-motion:reduce){main,.noga{transition:none!important;animation:none!important}}
 /* =========================================================
    PREDALI (vsebine iz urejevalnika)
    ========================================================= */

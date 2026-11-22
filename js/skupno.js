@@ -86,17 +86,20 @@
   };
 
   const naloziJSON = async (ime) => {
-    const r = await fetch(`vsebina/${ime}.json`, { cache: 'no-cache' });
+    const r = await fetch(`vsebina/${ime}.json`); // strežnik vedno preveri svežino (vercel.json)
     if (!r.ok) throw new Error(`Vsebine ${ime} ni bilo mogoče naložiti.`);
     return r.json();
   };
 
-  window.MK = { el, varnaPovezava, varnaSlika, povezava, brezSumnikov, datumSl, md, naloziJSON, PREDALI };
+  /* Pokaži stran, ko je vsebina izrisana */
+  const pokazi = () => requestAnimationFrame(() => document.body.classList.remove('cakam'));
+
+  window.MK = { pokazi, el, varnaPovezava, varnaSlika, povezava, brezSumnikov, datumSl, md, naloziJSON, PREDALI };
 
   /* ---------- Glava ---------- */
   const stran = document.body.dataset.stran || '';
   const glava = document.getElementById('glava');
-  if (glava) {
+  if (glava && !glava.children.length) {
     const vrstica = (glava.dataset.vrstica || 'Zapisi o športu in zgodovini|Radenci, Ljubljana').split('|');
     const prva = PREDALI.find(p => p.id === stran)?.ime || 'Domov';
     glava.replaceChildren(
@@ -130,6 +133,12 @@
       el('div', { class: 'spodaj' }, el('span', { text: `© ${leto} Miran Kondrič` }), el('a', { href: '#', text: 'Na vrh' }))));
   }
 
+  /* Leto v nogi */
+  document.querySelectorAll('.leto-zdaj').forEach(e => { e.textContent = new Date().getFullYear(); });
+
+  /* Strani brez vsebin iz urejevalnika (npr. knjiga) se pokažejo takoj */
+  if (!document.querySelector('script[src$="vsebina.js"]')) pokazi();
+
   /* ---------- Okrasne slike: če datoteke ni, jo skrij ---------- */
   document.querySelectorAll('img.risba, .ozadje-pokrajina img').forEach(img => {
     const skrij = () => (img.closest('.ozadje-pokrajina') || img).remove();
@@ -159,7 +168,7 @@
     if (url.origin !== location.origin || url.pathname === location.pathname || url.pathname.startsWith('/admin')) return;
     e.preventDefault();
     document.body.classList.add('odhajam');
-    setTimeout(() => { location.href = url.href; }, 280);
+    setTimeout(() => { location.href = url.href; }, 180);
   });
   addEventListener('pageshow', e => { if (e.persisted) document.body.classList.remove('odhajam'); });
 })();
