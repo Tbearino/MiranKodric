@@ -1,0 +1,35 @@
+{
+  "uvod": "Knjige, priročniki in drugo gradivo. Knjige z bralnikom lahko v celoti preberete na spletu.",
+  "knjige": [
+    {
+      "naslov": "Janez Nemec, prvi državni prvak v namiznem tenisu",
+      "avtorji": "Miran Kondrič in Jože Nemec",
+      "leto": "2025",
+      "vrsta": "Monografija",
+      "opis": "Življenje prvega državnega prvaka in razvoj namiznega tenisa v Prekmurju, z izvirnimi fotografijami in časopisnimi viri.",
+      "naslovnica": "slike/naslovna.jpg",
+      "povezava": "knjiga.html",
+      "bralnik": true
+    },
+    {
+      "naslov": "Namizni tenis: vadba z več žogicami",
+      "avtorji": "Miran Kondrič, Radivoj Hudetz in Neven Karković",
+      "leto": "2005",
+      "vrsta": "DVD",
+      "opis": "",
+      "naslovnica": "",
+      "povezava": "",
+      "bralnik": false
+    },
+    {
+      "naslov": "Telesna priprava namiznoteniškega igralca",
+      "avtorji": "Miran Kondrič in Gordana Furjan-Mandić",
+      "leto": "2002",
+      "vrsta": "Priročnik",
+      "opis": "Fakulteta za šport, 118 strani.",
+      "naslovnica": "",
+      "povezava": "",
+      "bralnik": false
+    }
+  ]
+}
