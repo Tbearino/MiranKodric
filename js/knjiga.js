@@ -142,7 +142,7 @@ document.addEventListener('fullscreenchange', () => setTimeout(() => flip && fli
     bralnik.classList.toggle('z-lupo', vklop);
     if (!vklop) lupa.classList.remove('vidna');
   };
-  oder.addEventListener('mousemove', e => {
+  const premik = e => {
     if (!vklop) return;
     const img = [...oder.querySelectorAll('.stran img.nalozena')].find(i => {
       const r = i.getBoundingClientRect();
@@ -158,8 +158,11 @@ document.addEventListener('fullscreenchange', () => setTimeout(() => flip && fli
     lupa.style.left = (e.clientX - L/2) + 'px';
     lupa.style.top = (e.clientY - L/2) + 'px';
     lupa.classList.add('vidna');
-  });
-  oder.addEventListener('mouseleave', () => lupa.classList.remove('vidna'));
+  };
+  oder.addEventListener('pointermove', premik);
+  oder.addEventListener('pointerdown', premik);
+  oder.addEventListener('pointerleave', () => lupa.classList.remove('vidna'));
+  oder.addEventListener('pointercancel', () => lupa.classList.remove('vidna'));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && vklop) gumb.click(); });
 })();
 })();

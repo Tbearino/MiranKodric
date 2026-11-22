@@ -68,7 +68,9 @@
 .lupa.vidna{display:block}
 #lupa-gumb[aria-pressed="true"]{background:var(--crnilo);color:var(--papir)}
 .z-lupo #knjiga-oder{cursor:zoom-in}
-@media (hover:none){#lupa-gumb{display:none}}
+/* z vklopljeno lupo se strani ne obračajo, prst ali miška premika lupo */
+.z-lupo #knjiga-oder{touch-action:none}
+.z-lupo #knjiga-oder .stf__parent{pointer-events:none}
 </style>
 </head>
 <body data-stran="literatura">
