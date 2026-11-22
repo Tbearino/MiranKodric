@@ -9,10 +9,29 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="preload" href="vsebina/projekti.json" as="fetch" crossorigin="anonymous">
 </head>
-<body data-stran="projekti">
+<body data-stran="projekti" class="cakam">
 
-<header class="masthead mala wrap" id="glava"></header>
+<header class="masthead mala wrap" id="glava">
+  <div class="vrstica"><span>Projekti</span><span>Zapisi o športu in zgodovini</span><span>Radenci, Ljubljana</span></div>
+  <hr class="enojna">
+  <a class="ime" href="index.html">Miran Kondrič</a>
+  <hr class="dvojna">
+  <nav aria-label="Glavna navigacija">
+    <ul>
+      <li><a href="index.html">Domov</a></li>
+      <li><a href="literatura.html">Literatura</a></li>
+      <li><a href="znanost.html">Znanost</a></li>
+      <li><a href="zgodovina.html">Zgodovina</a></li>
+      <li><a href="para-nt.html">Para NT</a></li>
+      <li><a href="projekti.html" aria-current="page">Projekti</a></li>
+      <li><a href="pravila.html">Pravila</a></li>
+      <li><a href="povezave.html">Povezave</a></li>
+    </ul>
+  </nav>
+  <hr class="enojna">
+</header>
 
 <main class="wrap">
   <header class="predal-glava">
@@ -22,7 +41,34 @@
   <div id="vsebina"><p class="prazno">Nalagam vsebino …</p></div>
 </main>
 
-<footer class="noga" id="kontakt"></footer>
+<footer class="noga" id="kontakt">
+  <div class="wrap">
+    <div class="noga-mreza">
+      <div>
+        <h2>Pišite mi</h2>
+        <p>Za vprašanja o knjigah, projektih ali zgodovini namiznega tenisa.</p>
+        <a class="email" href="mailto:miran.kondric@fsp.uni-lj.si">miran.kondric@fsp.uni-lj.si</a>
+      </div>
+      <div>
+        <h3>Naslov</h3>
+        <p>Fakulteta za šport<br>Gortanova 22<br>1000 Ljubljana</p>
+      </div>
+      <div>
+        <h3>Predali</h3>
+        <ul class="noga-predali">
+            <li><a href="literatura.html">Literatura</a></li>
+            <li><a href="znanost.html">Znanost</a></li>
+            <li><a href="zgodovina.html">Zgodovina</a></li>
+            <li><a href="para-nt.html">Para NT</a></li>
+            <li><a href="projekti.html">Projekti</a></li>
+            <li><a href="pravila.html">Pravila</a></li>
+            <li><a href="povezave.html">Povezave</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="spodaj"><span>© <span class="leto-zdaj">2026</span> Miran Kondrič</span><a href="#">Na vrh</a></div>
+  </div>
+</footer>
 
 <script src="js/lib/marked-18.1.3.js"></script>
 <script src="js/lib/purify-3.4.17.min.js"></script>

@@ -200,5 +200,7 @@
     }
   };
 
-  if (RISALCI[stran]) RISALCI[stran]().catch(() => { if (cilj) cilj.replaceChildren(napaka()); });
+  const risar = RISALCI[stran];
+  if (risar) risar().catch(() => { if (cilj) cilj.replaceChildren(napaka()); }).finally(window.MK.pokazi);
+  else window.MK.pokazi();
 })();

@@ -136,12 +136,20 @@ document.addEventListener('fullscreenchange', () => setTimeout(() => flip && fli
   const bralnik = document.getElementById('beri');
   let vklop = false;
   bralnik.appendChild(lupa);
-  gumb.onclick = () => {
-    vklop = !vklop;
+  const nastavi = (v) => {
+    vklop = v;
     gumb.setAttribute('aria-pressed', vklop);
+    gumb.textContent = vklop ? 'Izklopi lupo' : 'Lupa';
     bralnik.classList.toggle('z-lupo', vklop);
     if (!vklop) lupa.classList.remove('vidna');
   };
+  gumb.onclick = () => nastavi(!vklop);
+  /* Klik z miško kjerkoli izklopi lupo. Na zaslonu na dotik prst po knjigi
+     premika lupo, dotik izven knjige pa jo izklopi. */
+  document.addEventListener('pointerdown', e => {
+    if (!vklop || gumb.contains(e.target)) return;
+    if (e.pointerType === 'mouse' || !oder.contains(e.target)) nastavi(false);
+  }, true);
   const premik = e => {
     if (!vklop) return;
     const img = [...oder.querySelectorAll('.stran img.nalozena')].find(i => {
@@ -160,9 +168,9 @@ document.addEventListener('fullscreenchange', () => setTimeout(() => flip && fli
     lupa.classList.add('vidna');
   };
   oder.addEventListener('pointermove', premik);
-  oder.addEventListener('pointerdown', premik);
+  oder.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') premik(e); });
   oder.addEventListener('pointerleave', () => lupa.classList.remove('vidna'));
   oder.addEventListener('pointercancel', () => lupa.classList.remove('vidna'));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && vklop) gumb.click(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && vklop) nastavi(false); });
 })();
 })();

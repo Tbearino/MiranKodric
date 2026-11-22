@@ -73,9 +73,27 @@
 .z-lupo #knjiga-oder .stf__parent{pointer-events:none}
 </style>
 </head>
-<body data-stran="literatura">
+<body data-stran="literatura" class="cakam">
 
-<header class="masthead mala wrap" id="glava" data-vrstica="Monografija|Radenci, 2025"></header>
+<header class="masthead mala wrap" id="glava">
+  <div class="vrstica"><span>Literatura</span><span>Monografija</span><span>Radenci, 2025</span></div>
+  <hr class="enojna">
+  <a class="ime" href="index.html">Miran Kondrič</a>
+  <hr class="dvojna">
+  <nav aria-label="Glavna navigacija">
+    <ul>
+      <li><a href="index.html">Domov</a></li>
+      <li><a href="literatura.html" aria-current="page">Literatura</a></li>
+      <li><a href="znanost.html">Znanost</a></li>
+      <li><a href="zgodovina.html">Zgodovina</a></li>
+      <li><a href="para-nt.html">Para NT</a></li>
+      <li><a href="projekti.html">Projekti</a></li>
+      <li><a href="pravila.html">Pravila</a></li>
+      <li><a href="povezave.html">Povezave</a></li>
+    </ul>
+  </nav>
+  <hr class="enojna">
+</header>
 
 <main>
   <!-- ============ O KNJIGI ============ -->
@@ -133,7 +151,34 @@
   </section>
 </main>
 
-<footer class="noga" id="kontakt"></footer>
+<footer class="noga" id="kontakt">
+  <div class="wrap">
+    <div class="noga-mreza">
+      <div>
+        <h2>Pišite mi</h2>
+        <p>Za vprašanja o knjigah, projektih ali zgodovini namiznega tenisa.</p>
+        <a class="email" href="mailto:miran.kondric@fsp.uni-lj.si">miran.kondric@fsp.uni-lj.si</a>
+      </div>
+      <div>
+        <h3>Naslov</h3>
+        <p>Fakulteta za šport<br>Gortanova 22<br>1000 Ljubljana</p>
+      </div>
+      <div>
+        <h3>Predali</h3>
+        <ul class="noga-predali">
+            <li><a href="literatura.html">Literatura</a></li>
+            <li><a href="znanost.html">Znanost</a></li>
+            <li><a href="zgodovina.html">Zgodovina</a></li>
+            <li><a href="para-nt.html">Para NT</a></li>
+            <li><a href="projekti.html">Projekti</a></li>
+            <li><a href="pravila.html">Pravila</a></li>
+            <li><a href="povezave.html">Povezave</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="spodaj"><span>© <span class="leto-zdaj">2026</span> Miran Kondrič</span><a href="#">Na vrh</a></div>
+  </div>
+</footer>
 
 <script src="js/lib/page-flip-2.0.7.js"></script>
 <script src="js/skupno.js"></script>
