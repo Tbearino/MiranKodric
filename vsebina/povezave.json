@@ -1,0 +1,26 @@
+{
+  "uvod": "Strani, ki jih priporočam za vse, ki jih zanima namizni tenis.",
+  "povezave": [
+    {
+      "ime": "Mednarodna namiznoteniška zveza (ITTF)",
+      "opis": "Svetovna zveza, pravila, lestvice in tekmovanja.",
+      "povezava": "https://www.ittf.com",
+      "logo": "",
+      "skupina": "Zveze"
+    },
+    {
+      "ime": "Evropska namiznoteniška zveza (ETTU)",
+      "opis": "Evropska prvenstva in tekmovanja.",
+      "povezava": "https://www.ettu.org",
+      "logo": "",
+      "skupina": "Zveze"
+    },
+    {
+      "ime": "Fakulteta za šport, Univerza v Ljubljani",
+      "opis": "",
+      "povezava": "https://www.fsp.uni-lj.si",
+      "logo": "",
+      "skupina": "Izobraževanje"
+    }
+  ]
+}

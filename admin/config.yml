@@ -1,0 +1,225 @@
+# =========================================================
+# UREJEVALNIK STRANI (Sveltia CMS)
+# Vsak predal na strani je ena datoteka v mapi vsebina/.
+# Če dodaš polje tukaj, ga moraš prikazati še v js/vsebina.js.
+# =========================================================
+
+backend:
+  name: github
+  repo: Tbearino/mirankodric
+  branch: main
+  base_url: https://miran-kodric.vercel.app   # kjer tečejo /api/auth in /api/callback
+  auth_endpoint: api/auth
+  commit_messages:
+    create: "Urejevalnik: nova vsebina v {{collection}}"
+    update: "Urejevalnik: posodobljeno {{collection}}"
+    delete: "Urejevalnik: izbrisano iz {{collection}}"
+    uploadMedia: "Urejevalnik: nova slika {{path}}"
+    deleteMedia: "Urejevalnik: izbrisana slika {{path}}"
+
+site_url: https://miran-kodric.vercel.app
+display_url: https://miran-kodric.vercel.app
+
+media_folder: slike/vsebina
+public_folder: /slike/vsebina
+
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000        # 15 MB pred stiskanjem
+      slugify_filename: true         # brez šumnikov in presledkov v imenih datotek
+      transformations:
+        raster_image:                # fotografije se samodejno pomanjšajo in stisnejo
+          format: webp
+          quality: 82
+          width: 1800
+          height: 1800
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+
+  # ---------------- DOMAČA STRAN ----------------
+  - name: domov
+    label: Domača stran
+    icon: home
+    files:
+      - name: domov
+        label: Domača stran
+        file: vsebina/domov.json
+        fields:
+          - { name: uvod_oznaka, label: "Majhen napis nad naslovom", widget: string, required: false }
+          - { name: uvod_naslov, label: "Naslov", widget: string }
+          - { name: uvod_besedilo, label: "Uvodno besedilo", widget: markdown, buttons: [bold, italic, link], editor_components: [], modes: [rich_text] }
+          - { name: uvod_slika, label: "Fotografija", widget: image, required: false }
+          - { name: uvod_podnapis, label: "Podnapis pod fotografijo", widget: string, required: false }
+          - { name: o_avtorju, label: "O avtorju", widget: markdown, buttons: [bold, italic, link], editor_components: [], modes: [rich_text] }
+          - name: casovnica
+            label: Časovnica
+            label_singular: Dogodek
+            widget: list
+            summary: "{{leto}} – {{dogodek}}"
+            fields:
+              - { name: leto, label: Leto, widget: string }
+              - { name: dogodek, label: Dogodek, widget: string }
+
+  # ---------------- LITERATURA ----------------
+  - name: literatura
+    label: Literatura
+    icon: menu_book
+    files:
+      - name: literatura
+        label: Literatura
+        file: vsebina/literatura.json
+        fields:
+          - { name: uvod, label: "Uvod predala", widget: text, required: false }
+          - name: knjige
+            label: Knjige
+            label_singular: Knjiga
+            widget: list
+            summary: "{{leto}} – {{naslov}}"
+            fields:
+              - { name: naslov, label: Naslov, widget: string }
+              - { name: avtorji, label: Avtorji, widget: string, required: false }
+              - { name: leto, label: Leto izida, widget: string, required: false }
+              - { name: vrsta, label: Vrsta, widget: select, options: [Monografija, Priročnik, Učbenik, Zbornik, DVD, Drugo], required: false }
+              - { name: opis, label: Kratek opis, widget: text, required: false }
+              - { name: naslovnica, label: Naslovnica, widget: image, required: false }
+              - { name: povezava, label: "Povezava (npr. knjiga.html ali spletni naslov)", widget: string, required: false, hint: "Za knjigo z bralnikom na tej strani vpiši ime strani, npr. knjiga.html." }
+              - { name: bralnik, label: "Knjigo je mogoče brati na strani", widget: boolean, default: false }
+
+  # ---------------- ZNANOST ----------------
+  - name: znanost
+    label: Znanost
+    icon: science
+    files:
+      - name: znanost
+        label: Znanost
+        file: vsebina/znanost.json
+        fields:
+          - { name: uvod, label: "Uvod predala", widget: text, required: false }
+          - name: objave
+            label: Objave
+            label_singular: Objava
+            widget: list
+            summary: "{{leto}} – {{citat}}"
+            fields:
+              - { name: citat, label: "Citat APA", widget: text, hint: "Prilepi citat v slogu APA, npr. iz Google Učenjaka (gumb Citiraj). Ime revije lahko zapišeš v *zvezdicah* za ležeč tisk." }
+              - { name: leto, label: Leto, widget: string }
+              - { name: povezava, label: "Povezava do članka (DOI ali spletni naslov)", widget: string, required: false }
+              - { name: avtorski, label: "Moj avtorski članek", widget: boolean, default: true }
+              - { name: abstrakt, label: "Povzetek (abstrakt)", widget: markdown, required: false, buttons: [bold, italic], editor_components: [], modes: [rich_text] }
+              - { name: kljucne_besede, label: "Ključne besede", widget: string, required: false, hint: "Ločene z vejico. Pomagajo pri iskanju." }
+
+  # ---------------- ZGODOVINA ----------------
+  - name: zgodovina
+    label: Zgodovina
+    icon: history_edu
+    files:
+      - name: zgodovina
+        label: Zgodovina
+        file: vsebina/zgodovina.json
+        fields:
+          - { name: uvod, label: "Uvod", widget: markdown, required: false, buttons: [bold, italic, link], editor_components: [] }
+          - name: poglavja
+            label: Poglavja
+            label_singular: Poglavje
+            widget: list
+            summary: "{{naslov}}"
+            fields:
+              - { name: naslov, label: "Naslov poglavja", widget: string }
+              - { name: slika, label: "Fotografija", widget: image, required: false }
+              - { name: podnapis, label: "Podnapis pod fotografijo", widget: string, required: false }
+              - { name: besedilo, label: "Besedilo", widget: markdown, required: false, editor_components: [image] }
+              - { name: tabela, label: "Tabela", widget: text, required: false, hint: "Označi celice v Excelu ali Wordu, kopiraj in prilepi sem. Prva vrstica je glava tabele." }
+
+  # ---------------- PARA NT ----------------
+  - name: para
+    label: Para namizni tenis
+    icon: accessible
+    files:
+      - name: para
+        label: Para namizni tenis
+        file: vsebina/para.json
+        fields:
+          - { name: uvod, label: "Uvod predala", widget: markdown, required: false, buttons: [bold, italic, link], editor_components: [] }
+          - name: clanki
+            label: Članki
+            label_singular: Članek
+            widget: list
+            summary: "{{datum}} – {{naslov}}"
+            fields:
+              - { name: naslov, label: Naslov, widget: string }
+              - { name: vir, label: "Vir (časopis, spletna stran)", widget: string, required: false }
+              - { name: datum, label: Datum, widget: datetime, format: "YYYY-MM-DD", time_format: false, required: false }
+              - { name: izrezek, label: "Izrezek (slika članka)", widget: image, required: false }
+              - { name: opis, label: Kratek opis, widget: text, required: false }
+              - { name: povezava, label: "Povezava do članka", widget: string, required: false }
+
+  # ---------------- PROJEKTI ----------------
+  - name: projekti
+    label: Projekti v NT
+    icon: campaign
+    files:
+      - name: projekti
+        label: Projekti v NT
+        file: vsebina/projekti.json
+        fields:
+          - { name: uvod, label: "Uvod predala", widget: text, required: false }
+          - name: projekti
+            label: Projekti
+            label_singular: Projekt
+            widget: list
+            summary: "{{datum}} – {{naslov}}"
+            fields:
+              - { name: naslov, label: "Ime projekta", widget: string }
+              - { name: datum, label: Datum, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+              - { name: slika, label: Fotografija, widget: image, required: false }
+              - { name: opis, label: Kratek opis, widget: text, required: false }
+              - { name: povezava, label: "Povezava (neobvezno)", widget: string, required: false }
+              - { name: objavljeno, label: "Objavljeno na strani", widget: boolean, default: true }
+
+  # ---------------- PRAVILA ----------------
+  - name: pravila
+    label: Pravila NT
+    icon: gavel
+    files:
+      - name: pravila
+        label: Pravila NT
+        file: vsebina/pravila.json
+        fields:
+          - { name: uvod, label: "Uvod predala", widget: text, required: false }
+          - name: pravila
+            label: Pravila in dokumenti
+            label_singular: Dokument
+            widget: list
+            summary: "{{naslov}}"
+            fields:
+              - { name: naslov, label: Naslov, widget: string }
+              - { name: slika, label: Slika, widget: image, required: false }
+              - { name: opis, label: Kratek opis, widget: text, required: false }
+              - { name: povezava, label: "Povezava", widget: string, required: false }
+
+  # ---------------- POVEZAVE ----------------
+  - name: povezave
+    label: Povezave
+    icon: link
+    files:
+      - name: povezave
+        label: Povezave
+        file: vsebina/povezave.json
+        fields:
+          - { name: uvod, label: "Uvod predala", widget: text, required: false }
+          - name: povezave
+            label: Povezave
+            label_singular: Povezava
+            widget: list
+            summary: "{{ime}}"
+            fields:
+              - { name: ime, label: Ime, widget: string }
+              - { name: povezava, label: "Spletni naslov", widget: string, hint: "Začni z https://" }
+              - { name: opis, label: Kratek opis, widget: string, required: false }
+              - { name: logo, label: Logotip, widget: image, required: false }
+              - { name: skupina, label: "Skupina", widget: string, required: false, hint: "Npr. Zveze, Klubi, Izobraževanje. Povezave iz iste skupine so prikazane skupaj." }

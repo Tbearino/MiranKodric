@@ -96,7 +96,7 @@ p{margin:0 0 1em}
 .noga .email{font-family:var(--display);font-size:clamp(1.15rem,2.4vw,1.5rem);word-break:break-word}
 .noga .spodaj{border-top:1px solid #4A4036;padding:1.3rem 0 2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:#B9AC96}
 /* ---------- RISBE V OZADJU ---------- */
-body{overflow-x:clip}
+html,body{overflow-x:clip}
 .z-risbo{position:relative}
 .z-risbo > *:not(.risba){position:relative;z-index:1}
 .risba{
@@ -132,3 +132,115 @@ body > *:not(.ozadje-pokrajina){animation:pojavi-stran .5s ease backwards}
 body.odhajam > *:not(.ozadje-pokrajina){opacity:0;transition:opacity .25s ease}
 @keyframes pojavi-stran{from{opacity:0}}
 @media (prefers-reduced-motion:reduce){body > *{animation:none!important;transition:none!important}}
+/* =========================================================
+   PREDALI (vsebine iz urejevalnika)
+   ========================================================= */
+.noga-predali{list-style:none;margin:0;padding:0;columns:2;column-gap:1.5rem;font-size:1rem;line-height:1.9}
+.predal-glava{text-align:center;padding:3.5rem 0 2.2rem}
+.predal-glava h1{font-weight:400;font-style:italic;font-size:clamp(2.2rem,5vw,3.4rem);text-wrap:balance}
+.predal-glava #uvod{color:var(--crnilo-2);max-width:58ch;margin:.8rem auto 0}
+.predal-glava #uvod p:last-child{margin-bottom:0}
+.prazno{text-align:center;color:var(--crnilo-2);font-style:italic;padding:2.5rem 0;border-block:1px solid var(--crta);margin:0}
+.clanek{max-width:68ch}
+.clanek h2,.clanek h3{margin:1.8rem 0 .6rem}
+.clanek h3{font-size:1.25rem}
+.clanek ul,.clanek ol{padding-left:1.3rem}
+.clanek img{margin:1.2rem 0;height:auto}
+.clanek a,.citat a{color:var(--vino)}
+
+/* ---------- Iskalnik in orodja ---------- */
+.orodja{display:flex;flex-wrap:wrap;align-items:end;gap:1rem 2rem;margin-bottom:.8rem}
+.iskalnik{flex:1 1 20rem;display:grid;gap:.35rem}
+.iskalnik label{font-size:.9rem;color:var(--crnilo-2)}
+.iskalnik input{font:inherit;font-size:1rem;padding:.7rem .9rem;border:1px solid var(--crnilo);background:var(--papir);color:var(--crnilo);outline:1px solid var(--crnilo);outline-offset:-5px;min-height:44px}
+.iskalnik input:focus{outline:2px solid var(--vino);outline-offset:2px}
+.stikalo{display:flex;align-items:center;gap:.6rem;min-height:44px;font-size:.98rem;cursor:pointer}
+.stikalo input{width:1.15rem;height:1.15rem;accent-color:var(--vino)}
+.stevec-zadetkov{font-size:.88rem;color:var(--crnilo-2);margin:0 0 .6rem}
+
+/* ---------- Znanost ---------- */
+.objave{list-style:none;margin:0;padding:0;border-top:1px solid var(--crnilo)}
+.objava{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1.2rem;padding:1.1rem 0;border-bottom:1px solid var(--crta)}
+@media (max-width:560px){.objava{grid-template-columns:minmax(0,1fr);gap:.2rem}}
+.objava .leto,.domov-znanost .leto{font-family:var(--display);color:var(--vino);font-variant-numeric:tabular-nums}
+.citat{margin:0;line-height:1.6;overflow-wrap:anywhere}
+.objava-dodatki{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center;margin-top:.4rem;font-size:.92rem}
+.znacka{font-size:.8rem;border:1px solid var(--crnilo);padding:.05rem .5rem}
+.odpri{color:var(--vino)}
+.kljucne{font-size:.88rem;color:var(--crnilo-2);font-style:italic;margin:.3rem 0 0}
+.abstrakt{margin-top:.5rem}
+.abstrakt summary{cursor:pointer;color:var(--crnilo-2);font-size:.95rem;min-height:32px}
+.abstrakt div{padding:.6rem 0 0 1rem;border-left:1px solid var(--crta);font-size:1rem}
+
+/* ---------- Kartice (Projekti, Pravila) ---------- */
+.kartice{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:1.8rem}
+.kartica{display:grid;grid-template-rows:auto 1fr;background:var(--papir);border:1px solid var(--crnilo);outline:1px solid var(--crnilo);outline-offset:-6px;padding:10px;color:inherit;text-decoration:none}
+a.kartica:hover h3{text-decoration:underline}
+.kartica .foto,.kartica .brez-foto{aspect-ratio:4/3;width:100%;object-fit:cover;background:var(--papir-2)}
+.kartica .brez-foto{background:repeating-linear-gradient(135deg,var(--papir-2) 0 6px,var(--papir) 6px 12px)}
+.k-vsebina{padding:.8rem .3rem .3rem;display:grid;gap:.3rem;align-content:start}
+.k-vsebina time{font-family:var(--display);font-size:.9rem;color:var(--vino)}
+.k-vsebina h3{font-size:1.25rem;line-height:1.2;text-wrap:balance}
+.k-vsebina p{margin:0;font-size:1rem;color:var(--crnilo-2);line-height:1.55}
+.k-vsebina .vec{font-size:.92rem;color:var(--vino)}
+
+/* ---------- Literatura ---------- */
+.knjige{list-style:none;margin:0;padding:0;display:grid;gap:3rem}
+.knjiga{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:2.4rem;align-items:start;padding-bottom:3rem;border-bottom:1px solid var(--crta)}
+.knjiga:last-child{border-bottom:0}
+@media (max-width:620px){.knjiga{grid-template-columns:minmax(0,1fr);gap:1.2rem}.knjiga-naslovnica{max-width:220px}}
+.knjiga-naslovnica{display:block;padding:8px;border:1px solid var(--crnilo);outline:1px solid var(--crnilo);outline-offset:-5px;background:var(--papir)}
+.knjiga-naslovnica img{width:100%;height:auto}
+.brez-naslovnice{aspect-ratio:2/3;background:var(--crnilo);color:var(--papir-2);display:grid;place-items:center;padding:1.2rem;text-align:center;font-family:var(--display);font-size:1.05rem;line-height:1.25;box-shadow:inset 0 0 0 6px var(--crnilo),inset 0 0 0 7px #9C8766}
+.knjiga-oznaka{font-style:italic;color:var(--vino);margin:0 0 .4rem}
+.knjiga-podatki h2{font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12;margin-bottom:.6rem;text-wrap:balance}
+.knjiga-podatki h2 a{text-decoration:none}
+.knjiga-podatki h2 a:hover{text-decoration:underline}
+.knjiga-avtorji{color:var(--crnilo-2);margin-bottom:.8rem}
+
+/* ---------- Zgodovina ---------- */
+.poglavja-kazalo{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;justify-content:center;padding:.8rem 0;border-block:1px solid var(--crnilo);margin-bottom:2rem;font-size:.98rem}
+.poglavje{padding:2rem 0;border-bottom:1px solid var(--crta);display:grid;gap:1.2rem;scroll-margin-top:1rem}
+.poglavje h2{font-weight:400;font-style:italic;font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.poglavje .okvir{max-width:520px}
+.tabela-ovoj{overflow-x:auto;margin:.6rem 0}
+.tabela-ovoj table{border-collapse:collapse;width:100%;font-size:.98rem;font-variant-numeric:tabular-nums}
+.tabela-ovoj th{text-align:left;font-weight:600;border-block:1px solid var(--crnilo);padding:.55rem .7rem;white-space:nowrap}
+.tabela-ovoj td{border-bottom:1px solid var(--crta);padding:.55rem .7rem;vertical-align:top}
+
+/* ---------- Para NT (izrezki) ---------- */
+.izrezki-mreza{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:2.4rem 2rem;align-items:start}
+.izrezek{display:grid;gap:.8rem}
+.izrezek-slika{width:100%;height:auto;filter:drop-shadow(0 3px 5px rgba(60,45,30,.25)) drop-shadow(0 1px 1px rgba(60,45,30,.2))}
+.izrezek:nth-child(odd) .izrezek-slika{transform:rotate(-1deg)}
+.izrezek:nth-child(even) .izrezek-slika{transform:rotate(.8deg)}
+.izrezek-vir{font-size:.88rem;font-style:italic;color:var(--crnilo-2);margin:0}
+.izrezek h3{font-size:1.2rem;line-height:1.2;margin:.2rem 0 .3rem}
+.izrezek h3 a{text-decoration:none}
+.izrezek h3 a:hover{text-decoration:underline}
+.izrezek p{margin:0;font-size:1rem}
+
+/* ---------- Povezave ---------- */
+.povezave-skupina{margin-bottom:2.6rem}
+.povezave-skupina h2{font-weight:400;font-style:italic;font-size:1.6rem;margin-bottom:.8rem}
+.povezave{list-style:none;margin:0;padding:0;border-top:1px solid var(--crnilo)}
+.povezave li{border-bottom:1px solid var(--crta)}
+.povezava{display:flex;align-items:center;gap:1.2rem;padding:1rem .2rem;text-decoration:none;color:inherit;min-height:44px}
+.povezava:hover strong{text-decoration:underline;color:var(--vino)}
+.povezava .logo{width:56px;height:56px;object-fit:contain;flex:none;background:#fff;padding:4px;border:1px solid var(--crta)}
+.monogram{width:56px;height:56px;flex:none;display:grid;place-items:center;border:1px solid var(--crnilo);outline:1px solid var(--crnilo);outline-offset:-4px;font-family:var(--display);font-weight:700;font-size:1.05rem}
+.p-besedilo{display:grid;gap:.1rem}
+.p-besedilo strong{font-family:var(--display);font-size:1.15rem}
+.p-besedilo span{color:var(--crnilo-2);font-size:.98rem}
+.p-besedilo .p-naslov{font-size:.85rem;color:var(--vino)}
+
+/* ---------- Domača stran: novo in kazalo predalov ---------- */
+.predali-kazalo{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));border-top:1px solid var(--crnilo)}
+.predali-kazalo a{display:grid;gap:.2rem;padding:1.1rem 1rem 1.2rem 0;border-bottom:1px solid var(--crta);text-decoration:none;color:inherit;min-height:44px}
+.predali-kazalo a strong{font-family:var(--display);font-size:1.35rem}
+.predali-kazalo a span{color:var(--crnilo-2);font-size:.98rem;line-height:1.45}
+.predali-kazalo a:hover strong{color:var(--vino);text-decoration:underline}
+.domov-znanost{list-style:none;margin:0;padding:0;border-top:1px solid var(--crnilo)}
+.domov-znanost li{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1.2rem;padding:1rem 0;border-bottom:1px solid var(--crta)}
+@media (max-width:560px){.domov-znanost li{grid-template-columns:minmax(0,1fr);gap:.2rem}}
+.domov-vec{text-align:center;margin-top:1.4rem}

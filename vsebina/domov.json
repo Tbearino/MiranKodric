@@ -1,0 +1,30 @@
+{
+  "uvod_oznaka": "Dobrodošli",
+  "uvod_naslov": "Namizni tenis, znanost in zgodovina",
+  "uvod_besedilo": "Na tej strani zbiram svoje knjige, znanstvene objave in zapise o zgodovini slovenskega namiznega tenisa. Tukaj so tudi novice o projektih, pravila igre in povezave do pomembnih strani.\n\nVabljeni k branju.",
+  "uvod_slika": "slike/naslovna.jpg",
+  "uvod_podnapis": "Igralca namiznega tenisa, Murska Sobota, trideseta leta. Iz zasebnega arhiva Jožeta Nemca.",
+  "o_avtorju": "Rodil sem se leta 1960 v Murski Soboti. Sem redni profesor na Fakulteti za šport Univerze v Ljubljani, kjer vodim predmete Igre z loparji, Namizni tenis in Badminton.\n\nOd leta 1997 sem član znanstvene komisije Mednarodne namiznoteniške zveze. Predaval sem v Kölnu, Bochumu, Splitu in Celovcu, dolga leta pa sem skrbel za kondicijsko pripravo Bojana Tokiča.\n\nPoleg športa me vleče zgodovina Prekmurja: kraji, ljudje in zgodbe, ki bi se brez zapisa izgubile.",
+  "casovnica": [
+    {
+      "leto": "1960",
+      "dogodek": "Rojen v Murski Soboti"
+    },
+    {
+      "leto": "1995–1999",
+      "dogodek": "Direktor Zavoda za šport Slovenije"
+    },
+    {
+      "leto": "1997",
+      "dogodek": "Član znanstvene komisije ITTF"
+    },
+    {
+      "leto": "2000",
+      "dogodek": "Doktorat iz kinezioloških znanosti, Zagreb"
+    },
+    {
+      "leto": "2014",
+      "dogodek": "Redni profesor, Fakulteta za šport UL"
+    }
+  ]
+}
