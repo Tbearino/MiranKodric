@@ -1,0 +1,8 @@
+# Skrivnosti nikoli v Git (gesla, ključi so samo v Vercelu)
+.env
+.env.*
+*.pem
+*.key
+.vercel
+node_modules/
+.DS_Store
