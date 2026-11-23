@@ -43,7 +43,7 @@
   const varnaSlika = (pot) => {
     if (typeof pot !== 'string') return '';
     const p = pot.trim().replace(/^\//, '');
-    return /^slike\/[\w\-./% ]+\.(jpe?g|png|webp|gif|avif|svg)$/i.test(p) && !p.includes('..') ? p : '';
+    return /^slike\/[\w\-./% ]+\.(jpe?g|png|webp|gif|avif)$/i.test(p) && !p.includes('..') ? p : '';
   };
   const zunanja = (url) => /^https?:/i.test(url) && !url.startsWith(location.origin);
   const povezava = (url, vsebina, razred) => {
